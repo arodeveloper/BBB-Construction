@@ -1,0 +1,988 @@
+/* Configuración básica */
+:root {
+    --dark-blue: #0A1B2F; /* Color de fondo */
+    --medium-blue: #113B6C;
+    --accent-orange: #E49600; /* Color de botones */
+    --light-yellow: #E6B97B;
+    --mustard-yellow: #CD9155;
+    --text-light: #FFFFFF;
+}
+
+/* Esto aplica la transición de scroll suave a toda la página */
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fonts */
+/* Oswald Regular (Peso Normal) */
+@font-face {
+    font-family: 'Oswald';
+    src: url('../assets/fonts/Oswald-Regular.ttf') format('truetype');
+    font-weight: 400; /* o normal */
+    font-style: normal;
+}
+
+/* Oswald Bold (Peso Negrita) */
+@font-face {
+    font-family: 'Oswald';
+    src: url('../assets/fonts/Oswald-Bold.ttf') format('truetype');
+    font-weight: 700; /* o bold */
+    font-style: normal;
+}
+
+/* Roboto Condensed Light */
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('../assets/fonts/RobotoCondensed-Light.ttf') format('truetype');
+    font-weight: 300; /* Peso para "Light" */
+    font-style: normal;
+}
+
+/* Roboto Condensed Regular (Peso Normal) */
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('../assets/fonts/RobotoCondensed-Regular.ttf') format('truetype');
+    font-weight: 400; /* o normal */
+    font-style: normal;
+}
+
+/* Roboto Condensed Bold (Peso Negrita) */
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('../assets/fonts/RobotoCondensed-Bold.ttf') format('truetype');
+    font-weight: 700; /* o bold */
+    font-style: normal;
+}
+
+.main-header {
+    background-color: var(--dark-blue);
+    padding: 30px 0;
+}
+
+.main-header .container {
+    display: flex; /* Alineación principal */
+    justify-content: space-between; /* Espacia los elementos */
+    align-items: center; /* Alinea verticalmente */
+    max-width: 1200px; /* Limita el ancho como en Figma */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-left: 20px;
+}
+
+.main-nav .button {
+    font-family: 'Oswald';
+    font-weight: 400;
+    font-size: 20px;
+    background-color: var(--accent-orange);
+    color: var(--text-light);
+    border-radius: 14px;
+}
+
+.phone-button {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 17px;
+    font-family: 'Oswald';
+    font-size: 27px;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: var(--text-light);
+    color: var(--dark-blue);
+    padding: 10px 25px;
+    border-radius: 14px;
+}
+
+.phone-icon {
+    width: 32px;
+    height: auto;
+}
+/* ------------------------------------- */
+            /*Hero Section*/
+/* ------------------------------------- */
+.hero-section {
+    /* 1. Imagen de Fondo */
+    background-image: url('../assets/images/background-workers.png');
+    background-size: cover; /* Cubre todo el área */
+    background-position: center center; /* Centra la imagen */
+    min-height: 80vh; /* Altura mínima para mostrar la imagen */
+    
+    /* 2. Superposición oscura (para el efecto semitransparente) */
+    position: relative;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Ajusta este color y opacidad para que coincida con Figma */
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+.hero-section::after { /* Usamos ::after para este nuevo efecto */
+    content: "";
+    position: absolute;
+    bottom: 0; /* Lo ancla a la parte inferior del hero-section */
+    left: 0;
+    width: 100%;
+    height: 150px; /* La altura de la zona donde quieres el difuminado */
+    
+    /* Degradado de transparente a tu color de fondo (var(--dark-blue)) */
+    background: linear-gradient(
+        to bottom, 
+        rgba(26, 36, 51, 0) 0%, /* Totalmente transparente */
+        var(--text-light) 100%  /* A tu color de fondo */
+    );
+    z-index: 1; 
+}
+
+/* 3. Posicionamiento del Contenido (Logo Box y Text Box) */
+.hero-content {
+    text-align: left;
+    position: relative; /* Asegura que el contenido esté sobre el ::before */
+    z-index: 2;
+    width: 50%;
+    padding-top: 50px;
+    max-width: 550px;
+    margin: 0 auto;
+    margin-left: 0px;
+    /* Usa Grid o Flex para posicionar las cajas según el diseño de Figma */
+    display: grid; 
+    grid-template-columns: 1fr; /* 1 columna */
+    gap: 30px;
+    justify-content: start;
+}
+
+.hero-content .logo-box, .text-box {
+    font-family: 'Roboto Condensed';
+    background-color: rgba(26, 36, 51, 0.85); /* Fondo semitransparente azul oscuro */
+    padding: 30px;
+    border-radius: 0 31px 31px 0;
+    color: var(--text-light);
+}
+
+.hero-content .logo-box{
+    background-color: var(--dark-blue);
+    height: 195px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content .text-box{
+    background-color: var(--dark-blue);
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    padding-left: 150px;
+    padding-right: 150px;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+}
+
+.hero-content .text-box strong{
+    color: var(--accent-orange);
+}
+
+/* ------------------------------------- */
+        /* Buildings section 1 */
+/* ------------------------------------- */
+
+.buildings-section {
+    background-color: var(--text-light); 
+    padding: 0;
+    padding-top: 70px;
+    
+}
+
+.buildings-section .container {
+    
+    max-width: auto; 
+    margin: 0 auto;
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontales si la imagen es ancha */
+}
+
+.buildings-graphic {
+    /* Alineación de la imagen */
+    text-align: center; /* Centra la imagen dentro del contenedor */
+    /* Ajusta la altura si es necesario */
+    min-height: 200px; 
+}
+
+.buildings-graphic img {
+    display: block;
+    width: 100%; 
+    height: auto;
+    margin-bottom: 0;
+}
+
+/* ------------------------------------- */
+        /* Services section  */
+/* ------------------------------------- */
+
+/*Title Styles*/
+
+.services-section {
+    background-color: var(--dark-blue);
+    padding: 50px 20px; /* Padding superior e inferior para espacio */
+}
+
+.services-title-container { 
+    display: flex;
+    justify-content: center;
+}
+
+.section-title-box {
+    background-color: var(--accent-orange);
+    color: var(--dark-blue);
+    display: inline-block; /* Ajusta el ancho al contenido */
+    padding: 10px 40px;
+    margin: 0 auto 109px auto; /* Centra el bloque horizontalmente y da margen inferior */
+    border-radius: 18px;
+    font-family: 'Oswald';
+    font-size: 64px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/*Grid Styles*/
+
+.services-grid {
+    display: grid;
+    /* Crea 3 columnas de igual ancho (1fr) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espacio entre las columnas */
+    
+    /* Centra el contenedor si estás usando una clase .container */
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+/*Card Styles*/
+
+.service-card {
+    display: flex; /* Usamos Flexbox para apilar los elementos verticalmente */
+    flex-direction: column;
+    text-align: center;
+    gap: 33px;
+}
+
+/* 1. Imagen */
+.image-wrapper {
+    overflow: hidden;
+    border-radius: 10px; /* Bordes suaves de la imagen */
+    margin-bottom: -15px; /* Sube la imagen un poco para que se superponga con el título */
+    position: relative;
+    z-index: 1; /* Asegura que la imagen esté ligeramente sobre el card-title-box */
+}
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 24px;
+}
+
+/* 2. Caja de Título Dorado */
+.card-title-box {
+    background-color: var(--accent-orange);
+    color: var(--text-light);
+    padding: 10px;
+    border-radius: 18px;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2; /* Para que siempre esté sobre la imagen */
+}
+
+/* 3. Texto de Descripción */
+.service-card p {
+    color: var(--text-light);
+    padding: 5px 10px;
+    font-family: 'Roboto Condensed';
+    font-size:16px;
+    font-weight: 300;
+    /* Ajusta la altura del texto para que los párrafos se alineen, si es necesario */
+}
+
+/* ------------------------------------- */
+        /* Buildings section 2 */
+/* ------------------------------------- */
+
+.buildings-section-2 {
+    background-color: var(--text-light); 
+    padding: 0;
+}
+
+.buildings-section-2 .container {
+    max-width: auto; 
+    margin: 0 auto;
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontales si la imagen es ancha */
+}
+
+.buildings-graphic-2 {
+    /* Alineación de la imagen */
+    text-align: center; /* Centra la imagen dentro del contenedor */
+    /* Ajusta la altura si es necesario */
+    min-height: 200px; 
+}
+
+.buildings-graphic-2 img {
+    display: block;
+    width: 100%; 
+    height: auto;
+    margin-top: 0;
+}
+
+/* ------------------------------------- */
+        /* About Us Section */
+/* ------------------------------------- */
+
+.about-us-section {
+    background-color: var(--text-light); /* Asumiendo que el fondo es blanco o muy claro */
+    padding: 50px 0;
+}
+
+/* Título Principal de la Sección */
+
+.mv-main-title-box-container {
+    display: block;
+    margin: 0 auto 50px auto;
+    max-width: 789px;
+    padding-top: 150px;
+}
+
+.mv-main-title-box {
+    background-color: var(--light-yellow); /* Un beige/dorado claro similar al de Figma */
+    color: var(--dark-blue);
+    display: block;
+    justify-content: center;
+    padding: 10px 40px;
+    margin: 0 auto 50px auto;
+    font-family: 'Oswald';
+    font-size: 64px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 18px;
+}
+
+/* Contenedor de las dos columnas (Imagen y Texto) */
+.mv-content-wrapper {
+    display: grid;
+    /* Divide en dos columnas: 1.5 partes para la imagen, 1 parte para el texto */
+    grid-template-columns: minmax(400px, 1fr) 0.8fr;
+    gap: 20px;
+    
+    /* Asegúrate de que el contenedor .container esté centrado y tenga un max-width */
+    max-width: none;
+    margin: 0;
+    margin-left: 0;
+    padding-top: 50px;
+}
+
+.mv-image-column {
+    overflow: hidden;   
+}
+
+.mv-image-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mv-text-column {
+    display: flex;
+    flex-direction: column; 
+    gap: 30px; 
+}
+
+
+/* 1. Título del Bloque (MISSION / VISION) */
+.mv-title-box {
+    background-color: var(--light-yellow); /* Fondo beige/dorado */
+    color: var(--dark-blue);
+    padding: 15px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 18px;
+    margin-bottom: 30px;
+}
+
+/* 2. Caja de Texto (la parte azul oscuro) */
+.mv-text-box {
+    display: flex;
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    padding: 30px;
+    min-height: 155px; /* Asegura un tamaño mínimo si el texto es corto */
+    text-align: center;
+    align-items: center;
+    border-radius: 18px;
+    margin-bottom: 0;
+}
+
+.mv-text-box p {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-size: 16px;
+    line-height: normal;
+    margin: 0;
+    padding: 25px;
+}
+
+.mv-text-box p strong{
+    color: var(--light-yellow);
+}
+
+/* ------------------------------------- */
+        /* Values Section */
+/* ------------------------------------- */
+
+.values-section {
+    background-color: var(--text-light); /* Fondo blanco */
+    padding: 80px 0;
+}
+
+.values-grid {
+    display: grid;
+    /* Crea 2 columnas de igual ancho (1fr) */
+    grid-template-columns: repeat(2, 1fr); 
+    /* Crea espacio entre las filas y columnas */
+    gap: 80px 0px; 
+    
+    max-width: 100%; 
+    margin: 0 auto;
+    padding: 0;
+}
+
+.values-grid h3 {
+    padding: 0 150px;
+}
+
+/* Contenedor de cada valor (para Flexbox vertical) */
+.value-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título (EXCELLENCE, COMMITMENT, etc.) */
+.value-title {
+    color: var(--light-yellow); /* Usamos un color beige/dorado para los títulos */
+    font-family: 'Oswald', sans-serif;
+    font-size: 81px; /* Tamaño grande */
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px; /* Separación del título a la caja de texto */
+}
+
+/* Caja de Texto Azul Oscuro con Bordes Redondeados */
+.value-text-box {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    padding: 30px 50px;
+    height: 75px;
+    
+    /* MODIFICACIÓN CLAVE: ELIMINA el 'max-width' y 'width' que limitaban su tamaño */
+    width: 612px; /* Ocupa el ancho natural del contenido + padding */
+    max-width: none; /* Permite que se estire completamente dentro de su columna */
+    
+    /* Quita los márgenes auto que usábamos antes */
+    margin-left: 0;
+    margin-right: 0;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+    border-radius: 0;
+    /* ELIMINA width: 100%; y max-width: none; de aquí */
+    
+    text-align: left; /* Lo mantendremos para el texto interno */
+}
+
+.value-text-box p {
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* Estilos para las cajas de la IZQUIERDA (1ra y 3ra) */
+.values-grid .value-item:nth-child(odd) {
+    /* Alinea el título y la caja a la izquierda */
+    align-items: flex-start;
+}
+
+.values-grid .value-item:nth-child(odd) .value-text-box {
+    /* Borde redondeado SOLO en la esquina interna derecha */
+    border-top-right-radius: 50px; 
+    border-bottom-right-radius: 50px;
+    
+    /* MODIFICACIÓN CLAVE 2: Empuja la caja a la izquierda. */
+    margin-right: auto;
+    
+    text-align: left;
+}
+
+
+/* Estilos para las cajas de la DERECHA (2da y 4ta) */
+.values-grid .value-item:nth-child(even) {
+    /* Alinea el título y la caja a la derecha */
+    align-items: flex-end;
+}
+
+.values-grid .value-item:nth-child(even) .value-text-box {
+    /* Borde redondeado SOLO en la esquina interna izquierda */
+    border-top-left-radius: 50px; 
+    border-bottom-left-radius: 50px;
+    
+    /* MODIFICACIÓN CLAVE 3: Empuja la caja a la derecha. */
+    margin-left: auto;
+    
+    text-align: right; 
+}
+
+.value-item:nth-child(odd) .value-title {
+    /* El título de la izquierda se alinea a la izquierda */
+    align-self: flex-start; 
+}
+
+.value-item:nth-child(even) .value-title {
+    /* El título de la derecha se alinea a la derecha */
+    align-self: flex-end; 
+}
+
+/* ------------------------------------- */
+        /* Buildings section 1 */
+/* ------------------------------------- */
+
+.buildings-section-3 {
+    background-color: var(--text-light); 
+    padding: 0;
+    padding-top: 200px;
+}
+
+.buildings-section-3 .container {
+    
+    max-width: auto; 
+    margin: 0 auto;
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontales si la imagen es ancha */
+}
+
+.buildings-graphic-3 {
+    /* Alineación de la imagen */
+    text-align: center; /* Centra la imagen dentro del contenedor */
+    /* Ajusta la altura si es necesario */
+    min-height: 200px; 
+}
+
+.buildings-graphic-3 img {
+    display: block;
+    width: 100%; 
+    height: auto;
+    margin-bottom: 0;
+}
+
+/* ------------------------------------- */
+        /* Contact Section */
+/* ------------------------------------- */
+
+.contact-section {
+    /* Fondo del color de acento claro */
+    background-color: var(--light-yellow); 
+    padding: 80px 0 120px; /* Padding generoso */
+    text-align: center; /* Centra los bloques superiores */
+    align-items: center;
+}
+
+/* Título 'CONTACT' */
+.contact-main-title {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    display: inline-block;
+    padding: 15px 40px;
+    margin-bottom: 30px;
+    width: 400px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    border-radius: 18px;
+}
+
+/* Caja de texto introductorio */
+.contact-intro-box {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    max-width: 760px; /* Limita el ancho del texto */
+    margin: 52px auto 100px auto; /* Centra el bloque */
+    padding: 20px 30px;
+    border-radius: 23px;
+}
+.contact-intro-box p {
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    margin: 25px;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.contact-intro-box p strong {
+    color: var(--light-yellow);
+    font-weight: 700;
+}
+
+.social-grid {
+    display: grid;
+    /* 4 columnas de igual ancho para escritorio (1fr) */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* Espacio entre las tarjetas */
+    max-width: 1160px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Estilos para cada tarjeta (Social Card) */
+.social-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center;
+    
+    text-decoration: none; /* Quita el subrayado del enlace */
+    padding: 60px 5px;
+    border-radius: 36px;
+    min-height: 200px; /* Altura mínima para que todas sean uniformes */
+    width: auto;
+    /* Colores alternos */
+    transition: transform 0.2s;
+}
+
+.social-card.dark-bg {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+}
+.social-card.accent-bg {
+    background-color: var(--mustard-yellow);
+    color: var(--text-light);
+}
+
+.social-card img {
+    width: 113px;
+    height: 113px;
+    flex-shrink: 0;
+    margin-bottom: 10px;
+}
+
+.social-card h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 30px 0;
+    text-transform: uppercase;
+}
+.social-card p {
+    font-family: 'Roboto Condensed';
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* ------------------------------------- */
+/* Footer General */
+/* ------------------------------------- */
+
+footer {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+
+/* ------------------------------------- */
+/* Footer Top (Logo y Contacto) */
+/* ------------------------------------- */
+
+.footer-top {
+    /* ELIMINAMOS el background-color de aquí */
+    padding: 0; /* Quitamos el padding global para que los cuadros lo manejen */
+}
+
+.footer-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 0; /* Aseguramos que no haya espacio entre las dos columnas */
+    align-items: stretch; /* Es importante para que ambas columnas ocupen todo el alto */
+    margin: 0; /* Aseguramos que ocupe todo el ancho */
+    max-width: none; /* Aseguramos que ocupe todo el ancho */
+}
+
+/* Estilos de Fondo para las Columnas */
+.dark-bg-column {
+    background-color: var(--dark-blue);
+    padding: 40px 20px; /* Aplicamos el padding aquí */
+}
+
+.medium-blue-bg-column {
+    background-color: var(--medium-blue); /* Nuevo color */
+    padding: 40px 20px; /* Aplicamos el padding aquí */
+}
+
+/* Centrado del Contenido */
+
+/* 1. Centrado en la Columna del Logo (Vertical y Horizontal) */
+.footer-logo-box {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 250px; /* Asegura una altura mínima */
+}
+.footer-logo-box img {
+    max-width: 250px;
+    height: auto;
+    /* margin: 0 auto; <-- Ya no es necesario con Flexbox */
+}
+
+/* 2. Centrado en la Columna de Contacto (Vertical y Alineación a la Derecha) */
+.footer-contact-box {
+    color: var(--text-light);
+    /* Activa Flexbox para centrado vertical */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* MODIFICACIÓN CLAVE: Centra verticalmente el bloque de texto */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    min-height: 250px; /* Asegura la misma altura */
+}
+
+/* Ya que el diseño de contacto es a la derecha, ajustaremos la posición final */
+.footer-contact-box p, .call-info {
+    width: 100%;
+    text-align: center; /* Alineamos el texto a la izquierda, que es el borde del cuadro */
+}
+
+/* Columna de Logo */
+.footer-logo-box img {
+    max-width: 250px;
+    height: auto;
+    display: block;
+}
+
+/* Columna de Contacto */
+.footer-contact-box {
+    text-align: center;
+    align-items: center;
+}
+
+.call-info {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-bottom: 10px;
+    width: 175px;
+}
+.call-info .icon-wrapper {
+    background-color: var(--light-yellow);
+    border-radius: 50%;
+    padding: 5px;
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.call-info img {
+    width: 27px;
+    height: auto;
+    display: block;
+}
+.call-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+}
+
+.phone-number-title {
+    font-family: 'Roboto Condensed';
+    font-size: 24px;
+    font-weight: 600;
+    margin: 5px 0;
+    padding-top: 19px;
+}
+
+.phone-number {
+    font-family: 'Roboto Condensed';
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+.language-note {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    padding-top: 19px;
+    margin: 0;
+}
+
+/* ------------------------------------- */
+/* Footer Bottom (Enlaces) */
+/* ------------------------------------- */
+
+.footer-bottom {
+    /* Color azul claro/grisáceo */
+    background-color: #3D77BB; 
+    padding: 20px 35px;
+    color: var(--text-light);
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: center; /* Espacio entre los bloques */
+    align-items: center;
+}
+
+.footer-link-item {
+    display: flex;
+    align-items: center;
+}
+
+.footer-link-item:nth-child(even){
+    padding-left: 114px;
+}
+
+.footer-link-item .icon-wrapper {
+    background-color: var(--light-yellow);
+    border-radius: 50%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.footer-link-item img {
+    width: 27px;
+}
+.footer-link-item p {
+    margin: 0;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.footer-copyright {
+    font-size: 10px;
+}
+
+/* Media Queries*/
+
+/* Estilos para pantallas más pequeñas (Móvil) */
+@media (max-width: 768px) {
+    
+    /* 1. Encabezado */
+    .main-nav {
+        /* Oculta la navegación en móvil (mostrar con JS al hacer clic en el menú-toggle) */
+        display: none; 
+    }
+    .contact-phone {
+        display: none; /* Oculta el teléfono en el menú superior para ahorrar espacio */
+    }
+    .menu-toggle {
+        display: block; /* Muestra el icono de la hamburguesa */
+    }
+
+    /* 2. Sección Hero */
+    .hero-content {
+        /* Cambia el diseño de Grid a una sola columna */
+        grid-template-columns: 1fr;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+
+    .mv-content-wrapper {
+        /* Pasa a una sola columna */
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        /* Pasa a una sola columna */
+        grid-template-columns: 1fr;
+        gap: 50px; /* Reduce el espacio vertical */
+    }
+    
+    .value-title {
+        font-size: 2em; /* Reduce el tamaño de la fuente para que quepa */
+    }
+
+    .footer-top-grid {
+        grid-template-columns: 1fr; /* Una columna */
+        text-align: center;
+    }
+    .footer-logo-box {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .footer-logo-box img {
+        margin: 0 auto;
+    }
+    .footer-contact-box {
+        text-align: center;
+    }
+    .call-info {
+        justify-content: center; /* Centra el icono de llamada */
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column; /* Apila los enlaces */
+        gap: 15px;
+    }
+
+    /* Ajusta el padding, tamaños de fuente, etc., para que se vea bien en vertical */
+}
+
+@media (max-width: 992px) {
+    .social-grid {
+        /* Pasa a 2 columnas */
+        grid-template-columns: repeat(2, 1fr); 
+        max-width: 500px; /* Limita un poco más el ancho en tabletas */
+    }
+}
+
+@media (max-width: 576px) {
+    .social-grid {
+        /* Pasa a 1 columna en móviles */
+        grid-template-columns: 1fr; 
+    }
+}
