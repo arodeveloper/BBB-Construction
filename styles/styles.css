@@ -20,6 +20,23 @@ body {
     padding: 0;
 }
 
+.main-nav.nav-open {
+    display: flex; /* O block */
+    position: absolute; 
+    top: 60px; /* Debajo del encabezado */
+    left: 0;
+    width: 100%;
+    flex-direction: column; /* Apila los enlaces */
+    background-color: var(--dark-blue); /* Fondo oscuro para el menú */
+    z-index: 100; /* Asegura que esté encima de todo */
+}
+
+.main-nav.nav-open .nav-item {
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* Fonts */
 /* Oswald Regular (Peso Normal) */
 @font-face {
@@ -904,10 +921,28 @@ footer {
     font-size: 10px;
 }
 
+/* ------------------------------------- */
+        /* Responsiveness */
+/* ------------------------------------- */
+
 /* Media Queries*/
 
 /* Estilos para pantallas más pequeñas (Móvil) */
 @media (max-width: 768px) {
+
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    p { font-size: 1em; } /* Asegúrate de que no sean demasiado grandes */
+
+    .container {
+        padding: 0 15px; /* Reduce el padding horizontal */
+    }
+
+    /* Específicamente el título BUILDING WITH PURPOSE */
+    .mv-main-title-box {
+        font-size: 30px; 
+        padding: 15px 30px;
+    }
     
     /* 1. Encabezado */
     .main-nav {
@@ -922,9 +957,24 @@ footer {
     }
 
     /* 2. Sección Hero */
+
+    .hero-content.text-box { /* O la clase de tu div que contiene el texto */
+        padding-left: 20px; /* Reduce el padding a un valor más pequeño */
+        padding-right: 20px; /* Para que el texto se estire más */
+        
+        /* Asegúrate de que ocupe todo el ancho disponible si no lo hace ya */
+        width: 100%; 
+        box-sizing: border-box; /* Crucial para incluir el padding en el 100% del ancho */
+    }
+    
     .hero-content {
         /* Cambia el diseño de Grid a una sola columna */
         grid-template-columns: 1fr;
+
+        padding-left: 20px; 
+        padding-right: 20px;
+        /* Y si tiene un max-width, asegúrate de que sea 100% */
+        max-width: 100%;
     }
     
     .services-grid {
