@@ -225,11 +225,9 @@ body {
     background-color: var(--text-light); 
     padding: 0;
     padding-top: 70px;
-    
 }
 
 .buildings-section .container {
-    
     max-width: auto; 
     margin: 0 auto;
     overflow-x: hidden; /* Evita barras de desplazamiento horizontales si la imagen es ancha */
@@ -239,7 +237,7 @@ body {
     /* Alineación de la imagen */
     text-align: center; /* Centra la imagen dentro del contenedor */
     /* Ajusta la altura si es necesario */
-    min-height: 200px; 
+    min-height: auto; 
 }
 
 .buildings-graphic img {
@@ -360,7 +358,7 @@ body {
     /* Alineación de la imagen */
     text-align: center; /* Centra la imagen dentro del contenedor */
     /* Ajusta la altura si es necesario */
-    min-height: 200px; 
+    min-height: auto; 
 }
 
 .buildings-graphic-2 img {
@@ -597,7 +595,7 @@ body {
 }
 
 /* ------------------------------------- */
-        /* Buildings section 1 */
+        /* Buildings section 3 */
 /* ------------------------------------- */
 
 .buildings-section-3 {
@@ -607,7 +605,6 @@ body {
 }
 
 .buildings-section-3 .container {
-    
     max-width: auto; 
     margin: 0 auto;
     overflow-x: hidden; /* Evita barras de desplazamiento horizontales si la imagen es ancha */
@@ -617,7 +614,7 @@ body {
     /* Alineación de la imagen */
     text-align: center; /* Centra la imagen dentro del contenedor */
     /* Ajusta la altura si es necesario */
-    min-height: 200px; 
+    min-height: auto; 
 }
 
 .buildings-graphic-3 img {
@@ -931,7 +928,7 @@ footer {
 @media (max-width: 768px) {
 
     h1 { font-size: 2.5em; }
-    h2 { font-size: 1.8em; }
+    h2 { font-size: 27px; }
     p { font-size: 1em; } /* Asegúrate de que no sean demasiado grandes */
 
     .container {
@@ -958,7 +955,7 @@ footer {
 
     /* 2. Sección Hero */
 
-    .hero-content.text-box { /* O la clase de tu div que contiene el texto */
+    .hero-content .text-box { /* O la clase de tu div que contiene el texto */
         padding-left: 20px; /* Reduce el padding a un valor más pequeño */
         padding-right: 20px; /* Para que el texto se estire más */
         
@@ -966,19 +963,26 @@ footer {
         width: 100%; 
         box-sizing: border-box; /* Crucial para incluir el padding en el 100% del ancho */
     }
-    
-    .hero-content {
-        /* Cambia el diseño de Grid a una sola columna */
-        grid-template-columns: 1fr;
 
-        padding-left: 20px; 
-        padding-right: 20px;
-        /* Y si tiene un max-width, asegúrate de que sea 100% */
-        max-width: 100%;
+    #buildings-graphic-container {
+        padding: 0;
+    }
+
+    .services-title-container {
+        margin: 0px auto 50px auto;
     }
     
     .services-grid {
         grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+
+    #buildings-graphic-2-container {
+        padding: 0;
+    }
+
+    .mv-main-title-box-container {
+        padding-top: 30px;
+        margin-bottom: 0px;
     }
 
     .mv-content-wrapper {
@@ -994,6 +998,10 @@ footer {
     
     .value-title {
         font-size: 2em; /* Reduce el tamaño de la fuente para que quepa */
+    }
+
+    #buildings-graphic-3-container {
+        padding: 0;
     }
 
     .footer-top-grid {
