@@ -928,7 +928,6 @@ footer {
 @media (max-width: 768px) {
 
     h1 { font-size: 2.5em; }
-    h2 { font-size: 27px; }
     p { font-size: 1em; } /* Asegúrate de que no sean demasiado grandes */
 
     .container {
@@ -941,14 +940,25 @@ footer {
         padding: 15px 30px;
     }
     
+    .section-title-box {
+        font-size: 1.8em;
+        margin: 0 auto 0px auto;
+    }
+
+    .contact-main-title {
+        font-size: 1.8em;
+    } 
+
     /* 1. Encabezado */
     .main-nav {
         /* Oculta la navegación en móvil (mostrar con JS al hacer clic en el menú-toggle) */
         display: none; 
     }
-    .contact-phone {
-        display: none; /* Oculta el teléfono en el menú superior para ahorrar espacio */
-    }
+    
+    .phone-button {
+        font-size: 1.3em;
+        padding: 6px 10px;
+    } 
     .menu-toggle {
         display: block; /* Muestra el icono de la hamburguesa */
     }
@@ -976,6 +986,10 @@ footer {
         grid-template-columns: 1fr; /* Una columna en móvil */
     }
 
+    .service-card p {
+        margin-top: 0;
+    }
+
     #buildings-graphic-2-container {
         padding: 0;
     }
@@ -986,22 +1000,96 @@ footer {
     }
 
     .mv-content-wrapper {
+        padding-top: 0;
         /* Pasa a una sola columna */
         grid-template-columns: 1fr;
+    }
+
+    .values-section {
+        padding: 0;
     }
 
     .values-grid {
         /* Pasa a una sola columna */
         grid-template-columns: 1fr;
+        justify-content: center;
         gap: 50px; /* Reduce el espacio vertical */
     }
-    
-    .value-title {
+
+    .values-grid h3{
+        padding: 0;
+        margin-block-start: 0;
+    }
+
+    .values-grid .value-text-box {
+        width: 100%;
+        max-width: 100%; /* Anulamos cualquier max-width restrictivo */
+        margin: 0 auto; /* Centramos el bloque */
+        text-align: center !important; /* Centramos el texto interior */
+        padding: 60px 20px; /* Ajustamos el padding para móvil */
+        box-sizing: border-box; 
+    }
+
+    #values-grid-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .value-item:nth-child(odd) .value-title,
+    .value-item:nth-child(even) .value-title {
         font-size: 2em; /* Reduce el tamaño de la fuente para que quepa */
+        align-self: center;
+        width: 100%;
+    }
+
+    .values-grid .value-item:nth-child(odd),
+    .values-grid .value-item:nth-child(even) {
+        align-items: center; /* Centramos el value-item completo */
+        width: 100%;
+    }
+
+    /* Anulamos los márgenes laterales y los radios de borde asimétricos */
+    .values-grid .value-item:nth-child(odd) .value-text-box,
+    .values-grid .value-item:nth-child(even) .value-text-box {
+        margin: 0 auto; /* Eliminamos margin-right: auto; */
+        /* Simplificamos los bordes para móvil */
+        border-radius: 20px; 
+    }
+
+    .value-item .value-title {
+        align-self: center; /* Centramos el título */
+        text-align: center;
+        /* Asegúrate de que el bloque del título también tenga un ancho libre si es un bloque */
+        width: 100%;
+    }
+    
+    .buildings-section-3 {
+        padding-top: 75px;
     }
 
     #buildings-graphic-3-container {
         padding: 0;
+    }
+
+    .contact-main-title {
+        display: block;
+        align-items: center;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    #footer-top-grid-container {
+        padding: 0;
+    }
+
+    #id-footer-logo-box {
+        margin: 0;
+    }
+
+    #footer-bottom-grid-container {
+        padding: 0;
+        box-sizing: border-box;
+        align-items: center;
     }
 
     .footer-top-grid {
@@ -1018,6 +1106,32 @@ footer {
     .footer-contact-box {
         text-align: center;
     }
+
+    .footer-bottom-content .footer-link-item {
+        /* Permite que el correo y el ícono puedan apilarse si es necesario, 
+           o simplemente asegura que ocupe todo el ancho */
+        display: flex;
+        flex-direction: row; /* Mantener en fila */
+        align-items: center; 
+        
+        /* Asegura que el elemento ocupe todo el ancho disponible del padre */
+        width: 100%; 
+        box-sizing: border-box;
+    }
+
+    .footer-bottom-content .footer-link-item:nth-child(even) {
+        /* ESTO DEBE SOBRESCRIBIR EL 114px */
+        padding-left: 0px; 
+        padding-right: 15px;
+        font-size: 1em; 
+    }
+    
+    .footer-link-item p {
+        overflow-wrap: break-word; /* Rompe la dirección de correo largo */
+        word-wrap: break-word; 
+        max-width: 100%; /* Asegura que el texto no se extienda fuera de su caja */
+    }
+
     .call-info {
         justify-content: center; /* Centra el icono de llamada */
     }
