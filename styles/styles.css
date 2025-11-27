@@ -729,6 +729,15 @@ body {
     margin: 0;
 }
 
+.social-grid .social-card:nth-child(4) img {
+    /* Forzamos que el ancho y alto sean iguales */
+    width: 113px; 
+    height: 100px;
+    
+    /* Asegura que la imagen se escale para encajar sin recortarse ni estirarse */
+    object-fit: contain;
+}
+
 /* ------------------------------------- */
 /* Footer General */
 /* ------------------------------------- */
@@ -915,7 +924,17 @@ footer {
 }
 
 .footer-copyright {
+    color: var(--text-light);
     font-size: 10px;
+    background-color: #3D77BB;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.footer-copyright p strong {
+    display: none;
 }
 
 /* ------------------------------------- */
@@ -974,12 +993,17 @@ footer {
         box-sizing: border-box; /* Crucial para incluir el padding en el 100% del ancho */
     }
 
+    /* 3. Sección buildings 1*/
+
     #buildings-graphic-container {
         padding: 0;
     }
 
+    /* 4. Sección services*/
+
     .services-title-container {
         margin: 0px auto 50px auto;
+        font-size: 0.9em;
     }
     
     .services-grid {
@@ -989,9 +1013,21 @@ footer {
     .service-card p {
         margin-top: 0;
     }
+    #project-management-h2 {
+        font-size: 28px;
+    }
+
+    /* Sección Buildings 2*/
 
     #buildings-graphic-2-container {
         padding: 0;
+    }
+
+    /* About us section*/
+
+    .about-us-section {
+        margin-right: 5px;
+        margin-left: 5px;
     }
 
     .mv-main-title-box-container {
@@ -1005,7 +1041,11 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    /* Values Section*/
+
     .values-section {
+        margin-right: 5px;
+        margin-left: 5px;
         padding: 0;
     }
 
@@ -1119,6 +1159,12 @@ footer {
         box-sizing: border-box;
     }
 
+    .footer-link-item p {
+        overflow-wrap: break-word; /* Rompe la dirección de correo largo */
+        word-wrap: break-word; 
+        max-width: 100%; /* Asegura que el texto no se extienda fuera de su caja */
+    }
+
     .footer-bottom-content .footer-link-item:nth-child(even) {
         /* ESTO DEBE SOBRESCRIBIR EL 114px */
         padding-left: 0px; 
@@ -1126,11 +1172,10 @@ footer {
         font-size: 1em; 
     }
     
-    .footer-link-item p {
-        overflow-wrap: break-word; /* Rompe la dirección de correo largo */
-        word-wrap: break-word; 
-        max-width: 100%; /* Asegura que el texto no se extienda fuera de su caja */
+    .footer-bottom-content .footer-link-item:nth-child(even) p {
+        font-size: 14px;
     }
+
 
     .call-info {
         justify-content: center; /* Centra el icono de llamada */
