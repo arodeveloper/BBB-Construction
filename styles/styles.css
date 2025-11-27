@@ -1026,13 +1026,17 @@ footer {
     /* About us section*/
 
     .about-us-section {
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-right: 20px;
+        margin-left: 20px;
     }
 
     .mv-main-title-box-container {
         padding-top: 30px;
         margin-bottom: 0px;
+    }
+
+    .mv-main-title-box {
+        font-size: 27px;
     }
 
     .mv-content-wrapper {
@@ -1044,8 +1048,8 @@ footer {
     /* Values Section*/
 
     .values-section {
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-right: 20px;
+        margin-left: 20px;
         padding: 0;
     }
 
