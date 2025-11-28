@@ -453,7 +453,7 @@ body {
     display: flex;
     background-color: var(--dark-blue);
     color: var(--text-light);
-    padding: 30px;
+    padding: 35px;
     min-height: 155px; /* Asegura un tamaño mínimo si el texto es corto */
     text-align: center;
     align-items: center;
