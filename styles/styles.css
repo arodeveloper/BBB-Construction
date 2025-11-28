@@ -1049,6 +1049,10 @@ footer {
 
     /* Values Section*/
 
+    .mv-text-column {
+        margin-right: 0;
+    }
+
     .values-section {
         margin-right: 20px;
         margin-left: 20px;
